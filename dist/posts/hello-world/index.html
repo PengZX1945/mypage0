@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>你好，世界 · 我的博客</title>
+<meta name="description" content="第一篇文章。说说这个博客是怎么搭起来的，以及怎么加下一篇。">
+<meta property="og:title" content="你好，世界">
+<meta property="og:description" content="第一篇文章。说说这个博客是怎么搭起来的，以及怎么加下一篇。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.example.com/posts/hello-world/">
+<link rel="stylesheet" href="../../style.css">
+<link rel="alternate" type="application/rss+xml" title="我的博客" href="../../feed.xml">
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="../../">我的博客</a>
+    <nav>
+      <a href="../../">文章</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+  </header>
+    <article class="post">
+    <header>
+      <h1>你好，世界</h1>
+      <div class="meta"><time datetime="2026-10-31">2026-10-31</time><span>1 分钟</span></div>
+    </header>
+    <div class="body">
+<h2>为什么是纯静态</h2>
+<p>这个博客没有数据库，没有后端，没有构建框架。它只有一堆 <code>.md</code> 文件和一个 Node 脚本 —— 脚本在本地把 Markdown 编译成 HTML，产物放进 <code>dist/</code>，然后整个文件夹推到 Cloudflare 的全球边缘网络。</p>
+<p>结果是：<strong>没有服务器要维护，没有运行时成本，没有可以崩掉的东西</strong>。</p>
+<h2>怎么加文章</h2>
+<p>在 <code>content/posts/</code> 里新建一个 <code>.md</code> 文件，文件名就是 URL：</p>
+<pre><code>content/posts/my-new-post.md  -&gt;  /posts/my-new-post/</code></pre>
+<p>开头写一段 front matter：</p>
+<pre><code class="language-markdown">---
+title: 文章标题
+date: 2026-11-01
+summary: 列表页显示的一句话摘要
+draft: false
+---</code></pre>
+<p><code>draft: true</code> 的文章不会出现在产出里。<code>summary</code> 可以省略，省略时自动取正文第一段。</p>
+<h2>支持的写法</h2>
+<p>正文用标准 Markdown 的一个子集，覆盖日常写作需要的东西：</p>
+<ul><li><strong>粗体</strong>、<em>斜体</em>、<del>删除线</del>、<code>行内代码</code></li><li>链接：<a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare</a></li><li>图片、引用、有序与无序列表</li><li>围栏代码块（带语言标记）</li><li>分隔线</li></ul>
+<blockquote><p>引用的样子是这样的。中文行之间的软换行会被合并，不会出现多余空格。</p></blockquote>
+<p>加完文章跑一次：</p>
+<pre><code class="language-bash">npm run build</code></pre>
+<p>看本地效果用 <code>npm run dev</code>，推到线上用 <code>npm run deploy</code>。</p>
+    </div>
+  </article>
+  <p style="margin-top:3rem"><a href="../../">← 返回文章列表</a></p>
+  <footer class="site">
+    <span>© 2026 彭兆轩</span>
+    <span>Powered by plain HTML</span>
+  </footer>
+</div>
+</body>
+</html>

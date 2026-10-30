@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>我的博客</title>
+    <link>https://blog.example.com</link>
+    <description>记录想法、笔记与实验。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 30 Oct 2026 19:56:38 GMT</lastBuildDate>
+    <atom:link href="https://blog.example.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>你好，世界</title>
+      <link>https://blog.example.com/posts/hello-world/</link>
+      <guid>https://blog.example.com/posts/hello-world/</guid>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <description>第一篇文章。说说这个博客是怎么搭起来的，以及怎么加下一篇。</description>
+    </item>
+    <item>
+      <title>部署到 Cloudflare</title>
+      <link>https://blog.example.com/posts/deploy-to-cloudflare/</link>
+      <guid>https://blog.example.com/posts/deploy-to-cloudflare/</guid>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Workers 静态资源与 Pages 两条路，各自适合什么场景。</description>
+    </item>
+  </channel>
+</rss>

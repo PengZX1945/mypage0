@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>部署到 Cloudflare · 我的博客</title>
+<meta name="description" content="Workers 静态资源与 Pages 两条路，各自适合什么场景。">
+<meta property="og:title" content="部署到 Cloudflare">
+<meta property="og:description" content="Workers 静态资源与 Pages 两条路，各自适合什么场景。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.example.com/posts/deploy-to-cloudflare/">
+<link rel="stylesheet" href="../../style.css">
+<link rel="alternate" type="application/rss+xml" title="我的博客" href="../../feed.xml">
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <a class="brand" href="../../">我的博客</a>
+    <nav>
+      <a href="../../">文章</a>
+      <a href="../../feed.xml">RSS</a>
+    </nav>
+  </header>
+    <article class="post">
+    <header>
+      <h1>部署到 Cloudflare</h1>
+      <div class="meta"><time datetime="2026-10-30">2026-10-30</time><span>1 分钟</span></div>
+    </header>
+    <div class="body">
+<h2>一条命令的路</h2>
+<pre><code>npm run deploy</code></pre>
+<p>背后是 <code>wrangler deploy</code>，读取 <code>wrangler.jsonc</code> 里的 <code>assets.directory</code>，把 <code>dist/</code> 整个上传成一个 Workers 项目。第一次运行会让你登录 Cloudflare 账号（浏览器授权）。</p>
+<p>部署完成后会给你一个 <code>项目名.你的子域.workers.dev</code> 的地址，绑定自定义域名在控制台的 Workers 页面里加。</p>
+<h2>走 Git 的路</h2>
+<p>如果你想让&quot;提交即上线&quot;：</p>
+<ol><li>把仓库推到 GitHub</li><li>Cloudflare 控制台 → Workers &amp; Pages → 创建 → 连接到 Git</li><li>构建命令填 <code>npm run build</code>，输出目录填 <code>dist</code></li></ol>
+<p>之后每次 push 自动构建。适合在手机上改文章的场景。</p>
+<h2>两者怎么选</h2>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>wrangler 直接上传</th><th>Git 集成</th></tr></thead><tbody><tr><td>上手速度</td><td>快，一条命令</td><td>需要先建仓库</td></tr><tr><td>适合</td><td>单人、本地写作</td><td>多设备、想留版本历史</td></tr><tr><td>代价</td><td>每次手动推</td><td>依赖 Git 工作流</td></tr></tbody></table></div>
+<p>内容少、设备固定，选前者。写作地点会变，选后者。</p>
+<blockquote><p>免费额度对个人博客绰绰有余：静态资源请求免费且不限量。每日 10 万次的上限针对 Worker 脚本调用，这个站点没有脚本入口，不会触及。</p></blockquote>
+    </div>
+  </article>
+  <p style="margin-top:3rem"><a href="../../">← 返回文章列表</a></p>
+  <footer class="site">
+    <span>© 2026 彭兆轩</span>
+    <span>Powered by plain HTML</span>
+  </footer>
+</div>
+</body>
+</html>

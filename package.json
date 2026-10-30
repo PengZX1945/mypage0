@@ -1,0 +1,20 @@
+{
+  "name": "cf-blog",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "verify": "node scripts/verify.mjs",
+    "dev": "node build.mjs && python3 -m http.server 8899 --bind 127.0.0.1 --directory dist",
+    "preview": "node build.mjs && wrangler dev --port 8788",
+    "pack": "node build.mjs && node scripts/verify.mjs && cd dist && zip -qr ../cf-blog-dist.zip . -x '.*'",
+    "deploy": "bash scripts/deploy.sh",
+    "deploy:pages": "node build.mjs && wrangler pages deploy dist --project-name=cf-blog"
+  },
+  "devDependencies": {
+    "wrangler": "^4.156.0"
+  }
+}
