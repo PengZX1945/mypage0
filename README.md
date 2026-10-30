@@ -1,5 +1,6 @@
 # cloudflare-blog
 
+page.silvershaded.top
 零依赖静态博客。Markdown 写作 → 编译成纯 HTML → 部署到 Cloudflare。
 
 ## 结构
