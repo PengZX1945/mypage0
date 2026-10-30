@@ -1,6 +1,6 @@
 # cloudflare-blog
 
-[我的主页](page.silvershaded.top) page.silvershaded.top
+[我的主页](https://page.silvershaded.top) page.silvershaded.top
 
 零依赖静态博客。Markdown 写作 → 编译成纯 HTML → 部署到 Cloudflare。
 
